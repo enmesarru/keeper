@@ -1,0 +1,40 @@
+{
+	"name": "csrf",
+	"version": "0.0.0",
+	"description": "Keeper is for csrf protection",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/enmesarru/keeper"
+	},
+	"license": "MIT",
+	"author": {
+		"email": "fkurutass@gmail.com"
+	},
+	"type": "module",
+	"main": "./lib/index.js",
+	"files": [
+		"lib/",
+		"package.json",
+		"LICENSE.md",
+		"README.md"
+	],
+	"scripts": {
+		"build": "tsup",
+		"format": "prettier .",
+		"lint": "eslint . --max-warnings 0",
+		"prepare": "husky",
+		"tsc": "tsc"
+	},
+	"lint-staged": {
+		"*": "prettier --ignore-unknown --write"
+	},
+	"devDependencies": {
+		"tsup": "^8.3.5"
+	},
+	"engines": {
+		"node": ">=18.3.0"
+	},
+	"publishConfig": {
+		"provenance": true
+	}
+}
