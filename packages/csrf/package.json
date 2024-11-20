@@ -1,5 +1,5 @@
 {
-	"name": "csrf",
+	"name": "@keeper/csrf-core",
 	"version": "0.0.0",
 	"description": "Keeper is for csrf protection",
 	"repository": {
