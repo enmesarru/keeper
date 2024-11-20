@@ -1,10 +1,17 @@
 import eslint from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import n from "eslint-plugin-n";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
 	{
-		ignores: ["lib", "node_modules", "pnpm-lock.yaml", "**/*.snap"],
+		ignores: [
+			"coverage*",
+			"lib",
+			"node_modules",
+			"pnpm-lock.yaml",
+			"**/*.snap",
+		],
 	},
 	{
 		linterOptions: {
@@ -46,6 +53,20 @@ export default tseslint.config(
 		files: ["**/*.md/*.ts"],
 		rules: {
 			"n/no-missing-import": ["error", { allowModules: ["keeper"] }],
+		},
+	},
+	{
+		files: ["**/*.test.*"],
+		languageOptions: {
+			globals: vitest.environments.env.globals,
+		},
+		plugins: { vitest },
+		rules: {
+			...vitest.configs.recommended.rules,
+
+			// These on-by-default rules aren't useful in test files.
+			"@typescript-eslint/no-unsafe-assignment": "off",
+			"@typescript-eslint/no-unsafe-call": "off",
 		},
 	},
 );

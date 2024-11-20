@@ -15,5 +15,8 @@
 	],
 	"eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
 	"eslint.useFlatConfig": true,
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	}
 }
